@@ -146,7 +146,7 @@ resource "aws_networkfirewall_rule_group" "this" {
                         for_each = [rule_definition.value.match_attributes]
                         content {
 
-                          protocols = try(match_attributes.value.protocols, [])
+                          protocols = try(match_attributes.value.protocols, null)
 
                           dynamic "destination" {
                             # One or more
